@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<form action="/login" method="POST">
+    <p>ユーザー名
+        <input type="text" maxlength="50" name="member_name">
+    </p>
+    <p>パスワード
+        <input type="password" maxlength="50" name="member_pass">
+    </p>
+    <input type="submit" name="save" value="ログイン">
+</form>
+<p>ユーザ登録していない方は<a href="/regist">こちら</a></p>
+{% endblock %}
