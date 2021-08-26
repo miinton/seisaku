@@ -89,14 +89,39 @@ def login_post():
         session["name"] = name
         return render_template('top.html')
 
+@app.route('/top')
+def top(): 
+    if "user_id" in session:
+        return render_template('top.html')
+    else:
+        return render_template('login.html') 
+
+
+@app.route('/mypage')
+def mypage(): 
+    if "user_id" in session:
+        user_id = session["user_id"][0]
+        connect = sqlite3.connect('seisaku.db')
+        cursor = connect.cursor()
+        cursor.execute("SELECT name FROM user WHERE id = ?",(user_id,))
+        user_name = cursor.fetchone()[0]
+        cursor.execute("SELECT id FROM user WHERE user_id = ?",(user_id,))
+        connect.close()
+        return render_template('mypage.html',user_name = user_name)
+    else:
+        return redirect('/login')
+
+@app.route('/sakusei')
+def sakusei(): 
+    if "user_id" in session:
+        return redirect('/sakusei') 
+    else:
+        return render_template('login.html') 
+
 @app.route('/logout')
 def logout():
     session.pop("user_id",None)
-    return redirect('/top')
-
- @app.route('/mypage')
- def mypage(): 
-     return render_template('mypage.html')  
+    return render_template('login.html') 
 
 if __name__ == "__main__":
     app.run(debug=True)
