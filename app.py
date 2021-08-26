@@ -1,6 +1,7 @@
 from flask import Flask,render_template,redirect, request,session
 
 import sqlite3
+
 app = Flask(__name__)
 app.secret_key = "SUNABACO"
 
@@ -48,7 +49,7 @@ def saisyo():
 @app.route('/regist')
 def regist():
     if "user_id" in session:
-        return redirect('/tasklist')
+        return redirect('/top')
     else:
         return render_template('regist.html')
 
@@ -56,9 +57,10 @@ def regist():
 def regist_post():
     name = request.form.get("user_name")
     password = request.form.get("user_pass")
+    print(name, password)
     connect = sqlite3.connect('seisaku.db')
     cursor = connect.cursor()
-    cursor.execute("INSERT INTO user VALUES (null, ?, ?)",(name,password))
+    cursor.execute("INSERT INTO user VALUES (null, ?, ?)",(name, password))
     connect.commit()
     connect.close()
     return render_template('top.html')
@@ -66,7 +68,7 @@ def regist_post():
 @app.route('/login')
 def login():
     if "user_id" in session:
-        return render_template('login.html')
+        return render_template('top.html')
     else:
         return render_template('login.html')
 
@@ -84,13 +86,46 @@ def login_post():
     if id is None:
         return redirect('/login')
     else:
-        session["user_id"] = id
-        return redirect('/tasklist')
+        session["name"] = name
+        return render_template('top.html')
+
+@app.route('/top')
+def top(): 
+    if "user_id" in session:
+        return render_template('top.html')
+    else:
+        return render_template('login.html') 
+
+
+@app.route('/mypage')
+def mypage(): 
+    if "user_id" in session:
+        user_id = session["user_id"][0]
+        connect = sqlite3.connect('seisaku.db')
+        cursor = connect.cursor()
+        cursor.execute("SELECT name FROM user WHERE id = ?",(user_id,))
+        user_name = cursor.fetchone()[0]
+        cursor.execute("SELECT id FROM user WHERE user_id = ?",(user_id,))
+        connect.close()
+        return render_template('mypage.html',user_name = user_name)
+    else:
+        return redirect('/login')
+
+@app.route('/sakusei')
+def sakusei(): 
+    if "user_id" in session:
+        return redirect('/sakusei') 
+    else:
+        return render_template('login.html') 
 
 @app.route('/logout')
 def logout():
     session.pop("user_id",None)
-    return redirect('/top')
+    return render_template('login.html') 
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+#@app.route('/top')
+#def top():
+    #return render_template('top.html')
