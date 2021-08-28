@@ -1,0 +1,15 @@
+#mypage_a {
+    background: rgba(255, 0, 0, 0.3);
+    /* background-color: red; */
+    font-size: 44px;
+    border: solid 2.4px black;
+}
+
+#itiran {
+    background: rgba(0, 0, 255, 0.8);
+    font-size: 44px;
+    width: 308px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 2.4px black;
+}
