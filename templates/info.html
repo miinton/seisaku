@@ -1,9 +1,22 @@
-{% extends 'base.html'%}
-{% block content %}
-<h1>みんがでランキング</h1>
-<a href="/regist">登録はこちら</a>
-<a href="/login">ログインはこちら</a>
-
-
-
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/info.css">
+</head>
+<body>
+    {% extends 'base.html'%}
+    {% block content %}
+    <h1 id="app__title">みんなでランキング</h1>
+    <a href="/regist" id="regist_a">登録はこちら</a>
+    <a href="/login" id="login_a">ログインはこちら</a>
+    
+    
+    
+    {% endblock %}  
+</body>
+</html>

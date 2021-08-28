@@ -1,0 +1,32 @@
+#user_name {
+    /* background-color: blue; */
+    text-align: center;
+    /* border-bottom: solid 2.4px black; */
+    font-size: 34px;
+}
+
+#sakusei_a {
+    background: rgba(255, 255, 0, 0.8);
+    /* background-color: blue; */
+    font-size: 44px;
+    border: solid 2.4px black;
+}
+
+#sakusei_div {
+    text-align: center;
+}
+
+#my_ranking {
+    /* background-color: blueviolet; */
+    height: auto;
+    position: absolute;
+    bottom: 0px;
+    top: 200px;
+    left: 0px;
+    right: 0px;
+    border-top: solid 2.4px black;
+}
+
+#aa {
+    text-align: center;
+}

@@ -1,0 +1,28 @@
+#teima_h1 {
+    text-align: center;
+}
+
+#ranking_name_in {
+    text-align: center;
+}
+
+#kouho_h1 {
+    text-align: center;
+}
+
+#kouho_div_1-5 {
+    position: absolute;
+    left: 434px;
+}
+
+#kouho_div_6-10 {
+    position: absolute;
+    left: 834px;
+}
+
+#sakusei_btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 254px;
+}

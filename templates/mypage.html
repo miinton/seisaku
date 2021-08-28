@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/my.css">
+</head>
+<body>
+{% extends 'base.html'%}
+{% block content %}
+    <form action="/" method="post">
+        <h1 id="user_name">{{name}}さんこんにちは</h1>
+    </form>  
+    <div id="sakusei_div"><a href="/sakusei" id="sakusei_a">ランキングを作る</a></div>
+    <div id="my_ranking">
+        <h1 id="aa">自分が作ったランキング一覧</h1>
+    </div>
+{% endblock %}
+</body>
+</html>
+ 
