@@ -192,7 +192,26 @@ def logout():
 def top_top():
      return render_template('top.html')
 
+@app.route("/sakusei")
+def sakusei():
+    return render_template("sakusei.html")
 
+
+@app.route('/sakusei',methods=['POST'])
+def sakusei_post():
+    task = request.form.get("task")
+
+
+    conn = sqlite3.connect('seisaku.db')
+    c = conn.cursor()
+    c.execute("INSERT INTO sakusei values(?,?,?,?,?,?,?,?,?,?,?)",(lanking_name,kouho_1,kouho_2,kouho_3,kouho_4,kouho_5,kouho_6,kouho_7,kouho_8,kouho_9,kouho_10,))
+    conn.commit()
+    c.close()
+    return render_template("/lanking")
+
+@app.route("/lanking")
+def lanking():
+    return render_template("lanking.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
