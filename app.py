@@ -87,6 +87,8 @@ def sakusei_post():
 def lanking():
     return render_template("lanking.html")
 
+#チャット作成中
+
 @app.errorhandler(404)
 def notfound(code):
     return "404だよ🐈"
