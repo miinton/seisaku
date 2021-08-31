@@ -10,14 +10,14 @@ def info():
 
 @app.route('/regist')
 def regist():
-    if "user_id" in session:
+    if "id" in session:
         return redirect('/top')
     else:
         return render_template('regist.html')
 
 @app.route('/regist', methods=["post"])
 def regist_post():
-    name = request.form.get("user_name")
+    name = request.form.get("name")
     password = request.form.get("user_pass")
     connect = sqlite3.connect('seisaku.db')
     cursor = connect.cursor()
@@ -28,14 +28,14 @@ def regist_post():
 
 @app.route('/login')
 def login():
-    if "user_id" in session:
+    if "id" in session:
         return redirect('/top')
     else:
         return render_template('login.html')
 
 @app.route('/login', methods=["POST"])
 def login_post():
-    name = request.form.get("user_name")
+    name = request.form.get("name")
     password = request.form.get("user_pass")
     print(name, password)
     connect = sqlite3.connect('seisaku.db')
@@ -47,38 +47,66 @@ def login_post():
     if id is None:
         return redirect('/login')
     else:
-        session["user_id"] = id
+        session["id"] = id
         return redirect('/top')
+
+
+
 
 @app.route('/top')
 def top():
+
+
      return render_template('top.html')
 
 @app.route('/mypage')
 def mypage():
-    if "user_id" in session:
-        user_id = session["user_id"][0]
+    if "id" in session:
+        id = session["id"][0]
         connect = sqlite3.connect('seisaku.db')
         cursor = connect.cursor()
-        cursor.execute("SELECT name FROM user WHERE id = ?",(user_id,))
-        user_name = cursor.fetchone()[0]
+        cursor.execute("SELECT name FROM user WHERE id = ?",(id,))
+        name = cursor.fetchone()[0]
         connect.close()
-        return render_template('my.html',name = user_name)
+        return render_template('my.html',name = name)
     else:
         return redirect('/login')
+
+
+
+
+@app.route('/logout')
+def logout():
+    session.pop("id",None)
+    return render_template('login.html') 
+
+@app.route('/top')
+def top_top():
+     return render_template('top.html')
 
 @app.route("/sakusei")
 def sakusei():
     return render_template("sakusei.html")
 
+
 @app.route('/sakusei',methods=['POST'])
 def sakusei_post():
-    task = request.form.get("task")
+    lanking_name = request.form.get("lanking_name")
+    kouho_1 = request.form.get("kouho_1")
+    kouho_2 = request.form.get("kouho_2")
+    kouho_3 = request.form.get("kouho_3")
+    kouho_4 = request.form.get("kouho_4")
+    kouho_5 = request.form.get("kouho_5")
+    kouho_6 = request.form.get("kouho_6")
+    kouho_7 = request.form.get("kouho_7")
+    kouho_8 = request.form.get("kouho_8")
+    kouho_9 = request.form.get("kouho_9")
+    kouho_10 = request.form.get("kouho_10")
 
 
     conn = sqlite3.connect('seisaku.db')
     c = conn.cursor()
-    c.execute("INSERT INTO sakusei values(?,?,?,?,?,?,?,?,?,?,?)",(lanking_name,kouho_1,kouho_2,kouho_3,kouho_4,kouho_5,kouho_6,kouho_7,kouho_8,kouho_9,kouho_10,))
+    c.execute("INSERT INTO sakusei values(?,?,?,?,?,?,?,?,?,?,?)",(lanking_name,kouho_1,kouho_2,kouho_3,kouho_4,kouho_5,kouho_6,kouho_7,kouho_8,kouho_9,kouho_10))
     conn.commit()
     c.close()
     return render_template("/lanking")
@@ -87,16 +115,18 @@ def sakusei_post():
 def lanking():
     return render_template("lanking.html")
 
-#チャット作成中
 
-@app.errorhandler(404)
-def notfound(code):
-    return "404だよ🐈"
-
-@app.route('/logout')
-def logout():
-    session.pop("user_id",None)
-    return redirect('/login')
+# @app.route('/lanking')
+# def lanking():
+#     if "id" in session:
+#         conn = sqlite3.connect('list_test.db')
+#         c = conn.cursor()
+#         c.execute("SELECT * from list_test")
+#         task_list_py = []
+#         for row in c.fetchall():
+#             task_list_py.append({"tpl_id":row[0],"tpl_task":row[1],"task_id":row[2]})
+#         c.close()
+#         return render_template('task.html',tpl_task_list=task_list_py)
 
 if __name__ == "__main__":
     app.run(debug=True)
