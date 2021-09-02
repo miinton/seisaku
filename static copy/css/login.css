@@ -1,24 +1,32 @@
 html {
-    /*背景色の指定*/
     background-color: rgb(176, 255, 229);
-    text-align: center;
 }
 
 h1 {
-    background-color: #75ccb9;
+    text-align: center;
+    background: #008e76;
+    /*背景色*/
+    padding: 40px, 40px;
+    /*文字まわり（上下左右）の余白*/
+    font-size: 45px;
 }
 
 p {
     text-align: center;
-    line-height: 80px;
+    line-height: 70px;
+
 }
 
-#login_btn {
+.login {
+    text-align: center;
+}
+
+form {
     text-align: center;
 }
 
 .button {
-    /*登録ボタンをおしゃれに*/
+    /*ボタンをおしゃれに*/
     display: inline-block;
     border-radius: 5%;
     /* 角丸       */
@@ -32,7 +40,7 @@ p {
     /* 余白       */
     background: #75ccb9;
     /* 背景色     */
-    color: #ffffff;
+    color: #000000;
     /* 文字色     */
     line-height: 1em;
     /* 1行の高さ  */
@@ -43,6 +51,7 @@ p {
 }
 
 .button:hover {
+    /*ボタンにカーソルを合わせたときの動き*/
     color: #75ccb9;
     /* 背景色     */
     background: #ffffff;
@@ -50,6 +59,6 @@ p {
 }
 
 a {
+    /*リンクの下線消去*/
     text-decoration: none;
-    /*リンクの下線の消去*/
 }

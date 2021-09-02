@@ -1,4 +1,13 @@
+html {
+    background-color: #d6fff2;
+}
+
+#name {
+    font-size: 40px;
+}
+
 #user_name {
+    background-color: #008e76;
     /* background-color: blue; */
     text-align: center;
     /* border-bottom: solid 2.4px black; */
@@ -6,10 +15,11 @@
 }
 
 #sakusei_a {
-    background: rgba(255, 255, 0, 0.8);
+    background: #42a5f5;
     /* background-color: blue; */
     font-size: 44px;
-    border: solid 2.4px black;
+    border: solid 2.4px #75ccb9;
+    text-decoration: none;
 }
 
 #sakusei_div {
@@ -24,9 +34,40 @@
     top: 200px;
     left: 0px;
     right: 0px;
-    border-top: solid 2.4px black;
+    border-top: solid 2.4px #75ccb9;
 }
 
 #aa {
     text-align: center;
+}
+
+#sakusei_a {
+    display: inline-block;
+    border-radius: 5%;
+    /* 角丸       */
+    font-size: 18pt;
+    /* 文字サイズ */
+    text-align: center;
+    /* 文字位置   */
+    cursor: pointer;
+    /* カーソル   */
+    padding: 12px 12px;
+    /* 余白       */
+    background: #75ccb9;
+    /* 背景色     */
+    color: #000000;
+    /* 文字色     */
+    line-height: 1em;
+    /* 1行の高さ  */
+    transition: .3s;
+    /* なめらか変化 */
+    border: 2px solid #75ccb9;
+    /* 枠の指定 */
+}
+
+#sakusei_a:hover {
+    color: #75ccb9;
+    /* 背景色     */
+    background: #ffffff;
+    /* 文字色     */
 }
