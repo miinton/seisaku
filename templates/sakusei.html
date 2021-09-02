@@ -12,8 +12,8 @@
 
 <form action="/sakusei" method="post">
     <p id="ranking_name_in">
-        <input type="text" maxlength="50" name="lanking_name">ランキング</p>
-
+        {{name}}ランキング</p>
+        <input type="hidden" value={{name}} name="name">
     <h1 id="kouho_h1">候補を入力</h1>
     <div id="kouho_div_1-5">
         <p class="kouho_in">
@@ -40,11 +40,7 @@
             10.<input type="text" maxlength="50" name="kouho_10"></p>
     </div>
         <input type="submit" value="作成!!!" name="save" id="sakusei_btn">
-<<<<<<< HEAD
     </form>
 
 </body>
 </html>
-=======
-    </form>
->>>>>>> 444fa91580904eb0af26abc11bdab747f82f86eb
