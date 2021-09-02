@@ -1,31 +1,40 @@
-html {
-    background-color: rgb(176, 255, 229);
-}
-
-#lanking_name {
+#teima_h1 {
     text-align: center;
-    background-color: #00bfa5;
 }
 
-#kouho_1-5 {
+#ranking_name_in {
+    text-align: center;
+}
 
+#kouho_h1 {
+    text-align: center;
+}
+
+#kouho_div_1-5 {
     position: absolute;
-    left: 484px;
-    line-height: 70px;
-
+    left: 434px;
 }
 
-#kouho_6-10 {
+#kouho_div_6-10 {
     position: absolute;
-    left: 884px;
-    line-height: 70px;
+    left: 834px;
 }
 
-.button {
-    display: inline-block;
+#sakusei_btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 254px;
+
+}
+
+#sakusei_btn {
+    display: block;
+    margin-left: 680px;
+    margin-top: 250px;
     border-radius: 5%;
     /* 角丸       */
-    font-size: 15px;
+    font-size: 18pt;
     /* 文字サイズ */
     text-align: center;
     /* 文字位置   */
@@ -45,9 +54,18 @@ html {
     /* 枠の指定 */
 }
 
-.button:hover {
+#sakusei_btn:hover {
     color: #75ccb9;
     /* 背景色     */
     background: #ffffff;
     /* 文字色     */
+}
+
+html {
+    background-color: rgb(176, 255, 229);
+}
+
+h1 {
+    text-align: center;
+    background-color: #008e76;
 }

@@ -2,30 +2,46 @@ html {
     background-color: rgb(176, 255, 229);
 }
 
-#lanking_name {
+form {
     text-align: center;
-    background-color: #00bfa5;
-}
-
-#kouho_1-5 {
-
-    position: absolute;
-    left: 484px;
     line-height: 70px;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    color: rgb(0, 0, 0);
 
 }
 
-#kouho_6-10 {
-    position: absolute;
-    left: 884px;
+p {
+    text-align: center;
     line-height: 70px;
+}
+
+h1 {
+    background-color: #008e76;
+    font-size: 45px;
 }
 
 .button {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 1px 1px 1px 1px;
+    text-decoration: none;
+    color: #00BCD4;
+    background: rgb(176, 255, 229);
+    transition: .4s;
+}
+
+.btn-flat-simple:hover {
+    background: #00bcd4;
+    color: white;
+}
+
+.login_button {
+    /*ボタンをおしゃれに*/
     display: inline-block;
     border-radius: 5%;
     /* 角丸       */
-    font-size: 15px;
+    font-size: 18pt;
     /* 文字サイズ */
     text-align: center;
     /* 文字位置   */
@@ -45,7 +61,7 @@ html {
     /* 枠の指定 */
 }
 
-.button:hover {
+.login_button:hover {
     color: #75ccb9;
     /* 背景色     */
     background: #ffffff;

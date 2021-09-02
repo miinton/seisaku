@@ -1,31 +1,28 @@
 html {
+    /*背景色の指定*/
     background-color: rgb(176, 255, 229);
+    text-align: center;
 }
 
-#lanking_name {
-    text-align: center;
+h1 {
     background-color: #00bfa5;
 }
 
-#kouho_1-5 {
-
-    position: absolute;
-    left: 484px;
-    line-height: 70px;
-
+p {
+    text-align: center;
+    line-height: 80px;
 }
 
-#kouho_6-10 {
-    position: absolute;
-    left: 884px;
-    line-height: 70px;
+#login_btn {
+    text-align: center;
 }
 
 .button {
+    /*登録ボタンをおしゃれに*/
     display: inline-block;
     border-radius: 5%;
     /* 角丸       */
-    font-size: 15px;
+    font-size: 18pt;
     /* 文字サイズ */
     text-align: center;
     /* 文字位置   */
@@ -50,4 +47,9 @@ html {
     /* 背景色     */
     background: #ffffff;
     /* 文字色     */
+}
+
+a {
+    text-decoration: none;
+    /*リンクの下線の消去*/
 }

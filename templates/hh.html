@@ -1,14 +1,22 @@
 {% extends 'base.html'%}
 {% block content %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static copy/css/html.css">
+</head>
 
-form action="/regist" method="POST">
+
+
+<form action="/regist" method="POST">
+    <h1>新規登録</h1>
     <p>ユーザー名
         <input type="text" maxlength="50" name="member_name">
     </p>
     <p>パスワード
         <input type="password" maxlength="50" name="member_pass">
     </p>
-    <input type="submit" name="save" value="今すぐとうろく">
+    <input type="submit" name="save" value="今すぐとうろく" class="login_button">
 </form>
-<p>ログインは<a href="/login">こちら</a></p> 
+
+<p>ログインは<a href="/login" class="button">こちら</a></p> 
 {% endblock %}
