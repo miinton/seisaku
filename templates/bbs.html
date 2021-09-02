@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="../static/css/reset.css">
+<link rel="stylesheet" href="../static/css/bbs.css">
+
+<form class = form action="/add" method="POST">
+    <input class=input
+       type="text"
+       size = "90"
+       maxlength = "90"
+       name = "coment"
+    >
+    <input class=send type="submit" name="save" value="そうしん">
+</form>  
+
+
+    {% for item in html_bbs %}
+    
+        <h5 class=name>{{item["name"]}} {{item["time"]}}</h5>  
+        <div class="box2">
+           <p>{{item["comment"]}}</p>
+        </div>
+        
+              
+    </tr>
+
+
+    {% endfor %}
+    
+  
+<a href="/logout">ログアウト</a>
+
+
+{% endblock %}
+          

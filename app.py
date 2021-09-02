@@ -1,6 +1,11 @@
-from flask import Flask,render_template,redirect, request,session
-
 import sqlite3
+
+from flask import Flask , render_template , request , redirect , session
+
+app = Flask(__name__)
+
+from datetime import datetime
+
 app = Flask(__name__)
 app.secret_key = "SUNABACO"
 
@@ -75,7 +80,6 @@ def sakusei():
 def sakusei_post():
     task = request.form.get("task")
 
-
     conn = sqlite3.connect('seisaku.db')
     c = conn.cursor()
     c.execute("INSERT INTO sakusei values(?,?,?,?,?,?,?,?,?,?,?)",(lanking_name,kouho_1,kouho_2,kouho_3,kouho_4,kouho_5,kouho_6,kouho_7,kouho_8,kouho_9,kouho_10,))
@@ -83,11 +87,40 @@ def sakusei_post():
     c.close()
     return render_template("/lanking")
 
-@app.route("/lanking")
-def lanking():
-    return render_template("lanking.html")
+@app.route('/bbs')
+def bbs():
+    if "user_id"in session:
+        user_id = session["user_id"][0]
+        lanking_id = 1
+        connect = sqlite3.connect('seisaku.db')
+        cursor = connect.cursor()
+        cursor.execute("SELECT (SELECT name FROM user WHERE id = ?), comment, user_id, lanking_id, time FROM bbs WHERE lanking_id = ?",(user_id,lanking_id))
+        bbs_info = cursor.fetchall()
+        print(bbs_info)
+        bbs_list = []
+        for row in bbs_info:
+            bbs_list.append({"name":row[0],"comment":row[1],"user_id":row[2],"lanking_id":row[3],"time":row[4]})
+        connect.close()
+        return render_template('bbs.html', html_bbs = bbs_list)
+    else:
+        return redirect('/login')
 
-#チャット作成中
+@app.route('/add')
+def add():
+    return render_template('add.html')
+
+@app.route('/add', methods=["POST"])
+def add_post():
+    time = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
+    comment = request.form.get('coment')
+    connect = sqlite3.connect('seisaku.db')
+    cursor = connect.cursor()
+    cursor.execute("INSERT INTO bbs values (null,?,1,1,?)",(comment,time))
+    connect.commit()
+    cursor.close()
+    return redirect('/bbs')
+
+
 
 @app.errorhandler(404)
 def notfound(code):

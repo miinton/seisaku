@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<form action="/add" method="POST">
+    <input
+       type="text"
+       size = "100"
+       maxlength = "100"
+       name = "coment"
+    >
+    <input type="submit" name="save" value="そうしん">
+</form>  
+{% endblock %}
