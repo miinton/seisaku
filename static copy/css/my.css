@@ -1,5 +1,5 @@
 html {
-    background-color: #d6fff2;
+    background-color: rgb(176, 255, 229);
 }
 
 #name {
@@ -7,7 +7,7 @@ html {
 }
 
 #user_name {
-    background-color: #008e76;
+    background-color: #00bfa5;
     /* background-color: blue; */
     text-align: center;
     /* border-bottom: solid 2.4px black; */
