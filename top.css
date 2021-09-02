@@ -1,0 +1,58 @@
+html {
+    background-color: rgb(176, 255, 229);
+}
+
+h1 {
+    background-color: #008e76;
+    text-align: center;
+    font-size: 50px;
+}
+
+#itiran {
+    font-size: 50px;
+    background-color: #008e76;
+    text-align: center;
+}
+
+
+#mypage_a {
+    font-size: 44px;
+    margin-left: 595px;
+    /*下線の消去*/
+    text-decoration: none;
+    /*マイページボタン*/
+    display: inline-block;
+    border-radius: 5%;
+    /* 角丸       */
+    font-size: 18pt;
+    /* 文字サイズ */
+    text-align: center;
+    /* 文字位置   */
+    cursor: pointer;
+    /* カーソル   */
+    padding: 12px 105px;
+    /* 余白       */
+    background: #75ccb9;
+    /* 背景色     */
+    color: #000000;
+    /* 文字色     */
+    line-height: 1em;
+    /* 1行の高さ  */
+    transition: .3s;
+    /* なめらか変化 */
+    border: 2px solid #75ccb9;
+    /* 枠の指定 */
+}
+
+#mypage_a:hover {
+    color: #75ccb9;
+    /* 背景色     */
+    background: #ffffff;
+    /* 文字色     */
+}
+
+
+
+html {
+    background-color: rgb(176, 255, 229);
+}

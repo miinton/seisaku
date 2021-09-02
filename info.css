@@ -1,6 +1,21 @@
+@charset "UTF-8";
+
 /* みんなでランキングのcss */
+/*背景色*/
+html {
+    background-color: #D6FFF2;
+}
+
+/*中央寄せ*/
+body {
+    text-align: center;
+    line-height: 70px;
+}
+
+
 #app__title {
-    /* background-color: aqua; */
+    background-color: #06c99f;
+    color: l;
     text-align: center;
     height: 204px;
     font-size: 64px;
@@ -10,29 +25,82 @@
 
 
 /* 登録ボタンのcss */
+
 #regist_a {
-    /* background-color: blue; */
-    display: block;
+    /*縦に並べる*/
+    display: inline-block;
+    border-radius: 5%;
+    /* 角丸       */
+    font-size: 40px;
+    /* 文字サイズ */
     text-align: center;
-    height: 104px;
-    line-height: 104px;
-    margin-top: 104px;
-    width: 272px;
-    margin-left: auto;
-    margin-right: auto;
-    border: solid 3.4px black;
+    /* 文字位置   */
+    cursor: pointer;
+    /* カーソル   */
+    padding: 12px 12px;
+    /* 余白       */
+    background: #75ccb9;
+    /* 背景色     */
+    color: #000000;
+    /* 文字色     */
+    line-height: 1em;
+    /* 1行の高さ  */
+    transition: .3s;
+    /* なめらか変化 */
+    border: 2px solid #75ccb9;
+    /* 枠の指定 */
+    text-decoration: none;
+    /*下線の消去*/
 }
 
-/* ログインボタンのcsss */
+#regist_a:hover {
+    color: #75ccb9;
+    /* 背景色     */
+    background: #ffffff;
+    /* 文字色     */
+}
+
+/* ログインボタンのcss */
 #login_a {
-    /* background-color: blueviolet; */
+    text-decoration: none;
+    background-color: #40c4ff;
+    font-size: 30px;
     display: block;
     text-align: center;
-    height: 104px;
-    line-height: 104px;
     margin-top: 104px;
     width: 272px;
     margin-left: auto;
     margin-right: auto;
-    border: solid 3.4px black;
+
+
+}
+
+#login_a {
+    border-radius: 5%;
+    /* 角丸       */
+    font-size: 18pt;
+    /* 文字サイズ */
+    text-align: center;
+    /* 文字位置   */
+    cursor: pointer;
+    /* カーソル   */
+    padding: 20px 30px;
+    /* 余白       */
+    background: #75ccb9;
+    /* 背景色     */
+    color: #000000;
+    /* 文字色     */
+    line-height: 1em;
+    /* 1行の高さ  */
+    transition: .3s;
+    /* なめらか変化 */
+    border: 2px solid #75ccb9;
+    /* 枠の指定 */
+}
+
+#login_a:hover {
+    color: #75ccb9;
+    /* 背景色     */
+    background: #ffffff;
+    /* 文字色     */
 }

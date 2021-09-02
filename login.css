@@ -1,0 +1,64 @@
+html {
+    background-color: rgb(176, 255, 229);
+}
+
+h1 {
+    text-align: center;
+    background: #008e76;
+    /*背景色*/
+    padding: 40px, 40px;
+    /*文字まわり（上下左右）の余白*/
+    font-size: 45px;
+}
+
+p {
+    text-align: center;
+    line-height: 70px;
+
+}
+
+.login {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+.button {
+    /*ボタンをおしゃれに*/
+    display: inline-block;
+    border-radius: 5%;
+    /* 角丸       */
+    font-size: 18pt;
+    /* 文字サイズ */
+    text-align: center;
+    /* 文字位置   */
+    cursor: pointer;
+    /* カーソル   */
+    padding: 12px 12px;
+    /* 余白       */
+    background: #75ccb9;
+    /* 背景色     */
+    color: #000000;
+    /* 文字色     */
+    line-height: 1em;
+    /* 1行の高さ  */
+    transition: .3s;
+    /* なめらか変化 */
+    border: 2px solid #75ccb9;
+    /* 枠の指定 */
+}
+
+.button:hover {
+    /*ボタンにカーソルを合わせたときの動き*/
+    color: #75ccb9;
+    /* 背景色     */
+    background: #ffffff;
+    /* 文字色     */
+}
+
+a {
+    /*リンクの下線消去*/
+    text-decoration: none;
+}
