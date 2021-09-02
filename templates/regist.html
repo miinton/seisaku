@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../static/css/regist.css">
+    <link rel="stylesheet" href="../static copy/css/regist.css">
 </head>
 <body>
 {% extends 'base.html'%}
 {% block content %}
 
+<h1>新規登録</h1>
 <form action="/regist" method="POST">
     <p id="user_in">ユーザー名
         <input type="text" maxlength="50" name="user_name">
@@ -18,7 +20,7 @@
     <p id="pass_in">パスワード
         <input type="password" maxlength="50" name="user_pass">
     </p>
-    <input type="submit" name="save" value="今すぐとうろく" id="regist_btn">
+    <input type="submit" name="save" value="今すぐとうろく" id="regist_btn" class="button">
 </form>
 <p id="login_a">ログインは<a href="/login">こちら</a></p>    
 {% endblock %}

@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../static/css/my.css">
-</head>
+    <link rel="stylesheet" href="../static copy/css/my.css">
 <body>
 {% extends 'base.html'%}
 {% block content %}
+
     <form action="/" method="post">
-        <h1 id="user_name">{{name}}さんこんにちは</h1>
+        <h1 id="user_name" class="name">{{name}}さんこんにちは</h1>
     </form>  
     <div id="sakusei_div"><a href="/sakusei" id="sakusei_a">ランキングを作る</a></div>
     <div id="my_ranking">

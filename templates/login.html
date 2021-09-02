@@ -1,5 +1,10 @@
 {% extends 'base.html'%}
 {% block content %}
+<head>
+    <link rel="stylesheet" href="../static copy/css/login.css">
+</head>
+
+<h1>新規登録</h1>
 
 <form action="/login" method="POST">
     <p>ユーザー名
@@ -8,7 +13,7 @@
     <p>パスワード
         <input type="password" maxlength="50" name="user_pass">
     </p>
-    <input type="submit" name="save" value="ログイン">
+    <input type="submit" name="save" value="ログイン" class="button">
 </form>
-<p>ユーザ登録していない方は<a href="/regist">こちら</a></p>
+<p class="login">ユーザ登録していない方は<a href="/regist">こちら</a></p>
 {% endblock %}
