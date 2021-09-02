@@ -1,0 +1,69 @@
+html {
+    background-color: rgb(176, 255, 229);
+}
+
+form {
+    text-align: center;
+    line-height: 70px;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    color: rgb(0, 0, 0);
+
+}
+
+p {
+    text-align: center;
+    line-height: 70px;
+}
+
+h1 {
+    background-color: #008e76;
+    font-size: 45px;
+}
+
+.button {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 1px 1px 1px 1px;
+    text-decoration: none;
+    color: #00BCD4;
+    background: rgb(176, 255, 229);
+    transition: .4s;
+}
+
+.btn-flat-simple:hover {
+    background: #00bcd4;
+    color: white;
+}
+
+.login_button {
+    /*ボタンをおしゃれに*/
+    display: inline-block;
+    border-radius: 5%;
+    /* 角丸       */
+    font-size: 18pt;
+    /* 文字サイズ */
+    text-align: center;
+    /* 文字位置   */
+    cursor: pointer;
+    /* カーソル   */
+    padding: 12px 12px;
+    /* 余白       */
+    background: #75ccb9;
+    /* 背景色     */
+    color: #000000;
+    /* 文字色     */
+    line-height: 1em;
+    /* 1行の高さ  */
+    transition: .3s;
+    /* なめらか変化 */
+    border: 2px solid #75ccb9;
+    /* 枠の指定 */
+}
+
+.login_button:hover {
+    color: #75ccb9;
+    /* 背景色     */
+    background: #ffffff;
+    /* 文字色     */
+}
