@@ -6,17 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../static/css/top.css">
+    <link rel="stylesheet" href="../static/css/top.css">
+    <link rel="stylesheet" href="../static copy/css/top.css">
 </head>
 <body>
 {% extends 'base.html'%}
 {% block content %}
-
+<div id="top_go_div"><a href="/logout">ログアウト</a></div>
 <h1 id="itiran">ランキング一覧</h1>
 
 <a href="/mypage" id="mypage_a">マイページ</a>
+{% for item in items %}
+
+    <div id="lanking_div"><a href="/lanking/{{item['name']}}"><p id="lanking_a">{{item['name']}}ランキング</p></a>
+    </div>
+
+{%endfor%}
 
 
-<a href="/logout">ログアウト</a>
+
 {% endblock %}
 </body>
 </html>

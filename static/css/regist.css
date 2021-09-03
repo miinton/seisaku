@@ -1,0 +1,55 @@
+html {
+    /*背景色の指定*/
+    background-color: rgb(176, 255, 229);
+    text-align: center;
+}
+
+h1 {
+    background-color: #75ccb9;
+}
+
+p {
+    text-align: center;
+    line-height: 80px;
+}
+
+#login_btn {
+    text-align: center;
+}
+
+.button {
+    /*登録ボタンをおしゃれに*/
+    display: inline-block;
+    border-radius: 5%;
+    /* 角丸       */
+    font-size: 18pt;
+    /* 文字サイズ */
+    text-align: center;
+    /* 文字位置   */
+    cursor: pointer;
+    /* カーソル   */
+    padding: 12px 12px;
+    /* 余白       */
+    background: #75ccb9;
+    /* 背景色     */
+    color: #ffffff;
+    /* 文字色     */
+    line-height: 1em;
+    /* 1行の高さ  */
+    transition: .3s;
+    /* なめらか変化 */
+    border: 2px solid #75ccb9;
+    /* 枠の指定 */
+}
+
+.button:hover {
+    color: #75ccb9;
+    /* 背景色     */
+    background: #ffffff;
+    /* 文字色     */
+}
+
+a {
+    text-decoration: none;
+    /*リンクの下線の消去*/
+}

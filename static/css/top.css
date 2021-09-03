@@ -1,15 +1,82 @@
-#mypage_a {
-    background: rgba(255, 0, 0, 0.3);
-    /* background-color: red; */
-    font-size: 44px;
-    border: solid 2.4px black;
+html {
+    background-color: rgb(176, 255, 229);
+}
+
+h1 {
+    background-color: #008e76;
+    text-align: center;
+    font-size: 50px;
 }
 
 #itiran {
-    background: rgba(0, 0, 255, 0.8);
+    font-size: 50px;
+    background-color: #008e76;
+    text-align: center;
+}
+
+
+#mypage_a {
     font-size: 44px;
-    width: 308px;
-    margin-left: auto;
-    margin-right: auto;
-    border: solid 2.4px black;
+    margin-left: 555px;
+    /*下線の消去*/
+    text-decoration: none;
+    /*マイページボタン*/
+    display: inline-block;
+    border-radius: 5%;
+    /* 角丸       */
+    font-size: 18pt;
+    /* 文字サイズ */
+    text-align: center;
+    /* 文字位置   */
+    cursor: pointer;
+    /* カーソル   */
+    padding: 12px 105px;
+    /* 余白       */
+    background: #75ccb9;
+    /* 背景色     */
+    color: #000000;
+    /* 文字色     */
+    line-height: 1em;
+    /* 1行の高さ  */
+    transition: .3s;
+    /* なめらか変化 */
+    border: 2px solid #75ccb9;
+    /* 枠の指定 */
+}
+
+#mypage_a:hover {
+    color: #75ccb9;
+    /* 背景色     */
+    background: #ffffff;
+    /* 文字色     */
+}
+
+
+
+html {
+    background-color: rgb(176, 255, 229);
+}
+
+#lanking_div {
+    text-align: center;
+    text-decoration: none;
+    /*マイページボタン*/
+    border-radius: 5%;
+    /* 角丸       */
+    font-size: 18pt;
+    /* 文字サイズ */
+    text-align: center;
+    /* 文字位置   */
+    cursor: pointer;
+    /* カーソル   */
+    padding: 12px 105px;
+    /* 余白       */
+    background: rgb(176, 255, 229);
+    /* 背景色     */
+    color: #000000;
+    /* 文字色     */
+    line-height: 1em;
+    /* 1行の高さ  */
+    transition: .3s;
+    /* なめらか変化 */
 }

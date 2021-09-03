@@ -1,0 +1,29 @@
+.form {
+    margin-left: 160px;
+}
+
+.send {
+    margin-left: 10px;
+}
+
+.name {
+    text-indent: 1.8in;
+}
+
+.box2 {
+    padding: 0.5em 1em;
+    margin: 0.5em 10em 0.5em 10em;
+    font-weight: bold;
+    color: #6091d3;
+    /*文字色*/
+    background: #FFF;
+    border: solid 3px #6091d3;
+    /*線*/
+    border-radius: 10px;
+    /*角の丸み*/
+}
+
+.box2 p {
+    margin: 0;
+    padding: 0;
+}

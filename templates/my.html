@@ -16,7 +16,10 @@
     <div id="sakusei_div"><a href="/lanking_name" id="sakusei_a">ランキングを作る</a></div>
     <div id="my_ranking">
         <h1 id="aa">自分が作ったランキング一覧</h1>
-    </div>
+        {% for item in aaaa %}
+        <div id="lanking_div"><a href="/lanking/{{item['name']}}"><p id="lanking_a">{{item['name']}}ランキング</p></div>
+        {%endfor%}
+        <a href="/top" id="top_go">topに戻る</a>
 {% endblock %}
 </body>
 </html>

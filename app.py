@@ -1,3 +1,5 @@
+from sqlite3.dbapi2 import connect
+from typing import ContextManager
 from flask import Flask,render_template,redirect, request,session
 import datetime
 import sqlite3
@@ -57,7 +59,21 @@ def login_post():
 
 @app.route('/top')
 def top():
-     return render_template('top.html')
+    connect = sqlite3.connect("seisaku.db")
+    c = connect.cursor()
+    c.execute("SELECT name FROM lanking")
+    lanking_py = []
+    # a = c.fetchall()
+    # print("aaaaaaa")
+    # print(a)
+    for row in c.fetchall():
+        lanking_py.append({"name":row[0]})
+    print(row)
+    connect.close()
+
+    return render_template('top.html',items = lanking_py)
+    
+
 
 @app.route('/mypage')
 def mypage():
@@ -67,8 +83,12 @@ def mypage():
         cursor = connect.cursor()
         cursor.execute("SELECT name FROM user WHERE id = ?",(user_id,))
         user_name = cursor.fetchone()[0]
+        cursor.execute("SELECT name FROM lanking WHERE user_id = ?",(user_id,))
+        a_py = []
+        for row in cursor.fetchall():
+            a_py.append({"name":row[0]})
         connect.close()
-        return render_template('my.html',name = user_name)
+        return render_template('my.html',name = user_name, aaaa = a_py)
     else:
         return redirect('/login')
 
@@ -161,21 +181,85 @@ def sakusei_post():
     # print(touhyou)
     conn.commit()
     c.close()
-    return redirect("/lanking")
+    url = "/lanking/" + name
+    return redirect(url)
 
-@app.route("/lanking")
-def lanking():
+@app.route("/lanking/<name>")
+def lanking(name):
     if "user_id" in session:
-        user_id = session["user_id"]
+        user_id = session["user_id"][0]
+        print(user_id)
         connect = sqlite3.connect('seisaku.db')
         cursor = connect.cursor()
-        cursor.execute("SELECT * FROM content")
+        cursor.execute("SELECT id FROM lanking WHERE name = ?",(name,))
+        lanking_id = cursor.fetchone()[0]
+        cursor.execute("SELECT (SELECT name FROM user WHERE id = ?), comment, user_id, lanking_id, time FROM bbs WHERE lanking_id = ?",(user_id,lanking_id))
+        bbs_info = cursor.fetchall()
+        print(bbs_info)
+        bbs_list = []
+        for row in bbs_info:
+            bbs_list.append({"name":row[0],"comment":row[1],"user_id":row[2],"lanking_id":row[3],"time":row[4]})
+        cursor.execute("SELECT * FROM content WHERE lanking_id = (SELECT id FROM lanking WHERE name = ?) ORDER BY vote DESC",(name,))
         lanking_py = []
-    for row in cursor.fetchall():
-        lanking_py.append({"id":row[0],"candidate":row[1],"vote":row[2],"lanking_id":row[3]})
+        for row in cursor.fetchall():
+            lanking_py.append({"id":row[0],"candidate":row[1],"vote":row[2],"lanking_id":row[3]})
         connect.close()
-    return render_template('lanking.html' ,items = lanking_py)
-        # lanking_nae = item:row[0], kouho_1 = item:row[1], kouho_2 = item:row[2], kouho_3 = item:row[3], kouho_4 = item:row[4], kouho_5 = item:row[5], kouho_6 = item:row[6], kouho_7 = item:row[7], kouho_8 = item:row[8], kouho_9 = item:row[9], kouho_10 = item:row[10]
+        return render_template('lanking.html' ,items = lanking_py,name = name, html_bbs = bbs_list)
+
+@app.route("/lanking_post/<int:id>",methods=["POST"])
+def lanking_post(id):
+    user_id = session["user_id"][0]
+    name = request.form.get("name")
+    print("aaaa")
+    print(id)
+    print(name)
+    connect = sqlite3.connect('seisaku.db')
+    cursor = connect.cursor()
+    cursor.execute("SELECT vote_flag FROM user_vote WHERE candidate_id = ? AND user_id = ? ",(id,user_id))
+    flag = cursor.fetchone()
+    print("aaaaaaaa")
+    print(flag)
+    if flag == None:
+        cursor.execute("INSERT INTO user_vote VALUES (null,?,?,0)",(user_id,id))
+        cursor.execute("UPDATE content SET vote = vote + 1 WHERE id = ?",(id,))
+        connect.commit()
+    connect.commit()
+
+    connect.close()
+    url = "/lanking/" + name
+    return redirect(url)
+
+
+@app.route("/lanking_a")
+def lanking_a(name):
+    user_id = session["user_id"][0]
+    connect = sqlite3.connect("seisaku.db")
+    c = connect.cursor()
+    c.execute("SELECT * FROM lanking WHERE lanking_id = (SELECT id FROM lanking WHERE name = ?)",(name,))
+    lanking_py = []
+    for row in c.fetchall():
+        lanking_py.append({"id":row[0],"name":row[1],"creaited_at":row[2],"user_id":row[3]})
+        connect.close()
+        url = "/lanking/" + name
+    return redirect(url,items = lanking_py,name = name,)
+
+@app.route('/add/<name>', methods=["POST"])
+def add_post(name):
+    time = datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S')
+    user_id = session["user_id"][0]
+    comment = request.form.get('coment')
+    connect = sqlite3.connect('seisaku.db')
+    
+    cursor = connect.cursor()
+    cursor.execute("SELECT id FROM lanking WHERE name = ?",(name,))
+    lanking_id = cursor.fetchone()[0]
+    cursor.execute("INSERT INTO bbs values (null,?,?,?,?)",(comment,user_id,lanking_id,time))
+    connect.commit()
+    cursor.close()
+    url = "/lanking/" + name
+
+    return redirect(url)
+
 
 
 if __name__ == "__main__":
